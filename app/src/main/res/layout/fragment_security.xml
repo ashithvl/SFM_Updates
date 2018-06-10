@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColorHint="@color/colorAccent"
+            android:layout_margin="@dimen/activity_horizontal_margin">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/total_vehicle_dispatched"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/total_vehicle_dispatched"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@android:color/black"
+                android:imeOptions="actionNext"
+                android:inputType="number" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/any_theft"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:hint="@string/any_theft"
+            android:textColorHint="@android:color/black"
+            app:met_baseColor="@android:color/black"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelTextColor="@color/colorAccent"
+            app:met_primaryColor="@android:color/black"
+            app:met_underlineColor="@android:color/black" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/commentsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:textColorHint="@color/colorAccent"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fadeScrollbars="false"
+                android:gravity="top|start"
+                android:hint="@string/comments"
+                android:imeOptions="actionNext"
+                android:inputType="textImeMultiLine"
+                android:lines="2"
+                android:maxLines="3"
+                android:overScrollMode="always"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@android:color/black"
+                android:scrollHorizontally="false"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:textColorHint="@color/colorAccent"
+            android:layout_marginTop="8dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/remarks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|start"
+                android:hint="@string/remarks"
+                android:imeOptions="actionDone"
+                android:inputType="textImeMultiLine"
+                android:lines="2"
+                android:maxLines="3"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@android:color/black"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/reset"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:background="@android:color/holo_red_light"
+            android:elevation="4dp"
+            android:shadowRadius="@android:integer/config_mediumAnimTime"
+            android:text="@string/reset"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

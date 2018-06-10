@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">SFM Updates</string>
+    <string name="security">SECURITY</string>
+    <string name="fire">FIRE</string>
+    <string name="medical">MEDICAL</string>
+    <string name="gate">GATE</string>
+    <string name="date">Date</string>
+    <string name="total_vehicle_dispatched">Total vehicle Dispatched ?</string>
+    <string name="any_theft">Any Theft ?</string>
+    <string name="comments">Comments</string>
+    <string name="remarks">Remarks</string>
+    <string name="reset">Reset</string>
+    <string name="save">Save</string>
+    <string name="fire_calls">Fire Calls</string>
+    <string name="incidental">Incidental</string>
+    <string name="non_incidental">Non-Incidental</string>
+    <string name="snake_calls">Snake Calls ?</string>
+    <string name="total_patients">Total Patients ?</string>
+    <string name="occupational_injury">Occupational Injury</string>
+    <string name="routine">Routine</string>
+    <string name="material_gate">Material Gate</string>
+    <string name="total_vehicle_inward">Total vehicle inward ?</string>
+    <string name="layover">Layover ?</string>
+    <string name="any_updates">Any Updates ?</string>
+    <string name="number_of_patients">Number of Patients ?</string>
+    <string name="project">Project</string>
+    <string name="total_fire_calls">Total Fire Calls ?</string>
+</resources>
