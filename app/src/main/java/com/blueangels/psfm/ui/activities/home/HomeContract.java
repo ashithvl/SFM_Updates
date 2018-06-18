@@ -6,6 +6,7 @@ import com.blueangels.psfm.base.BaseMvpPresenter;
 import com.blueangels.psfm.ui.fragments.fire.FireFragment;
 import com.blueangels.psfm.ui.fragments.gate.GateFragment;
 import com.blueangels.psfm.ui.fragments.medical.MedicalFragment;
+import com.blueangels.psfm.ui.fragments.project.ProjectFragment;
 import com.blueangels.psfm.ui.fragments.security.SecurityFragment;
 import com.blueangels.psfm.utils.SectionsStatePagerAdapter;
 
@@ -18,7 +19,10 @@ public interface HomeContract {
     interface Presenter extends BaseMvpPresenter<HomeContract.View> {
 
         void setupViewPager(SectionsStatePagerAdapter adapter, SecurityFragment securityFragment
-        , FireFragment fireFragment , MedicalFragment medicalFragment , GateFragment gateFragment);
+        , FireFragment fireFragment , MedicalFragment medicalFragment , GateFragment gateFragment,
+                            ProjectFragment projectFragment);
+
+        void setTodaysDate();
     }
 
     // Action callbacks. Activity/Fragment will implement

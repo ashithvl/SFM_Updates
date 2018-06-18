@@ -1,4 +1,4 @@
-package com.blueangels.psfm.ui.activities.home;
+package com.blueangels.psfm.ui.activities.save;
 
 import android.content.Context;
 
@@ -19,24 +19,24 @@ import dagger.Provides;
  */
 @Module(includes = {ActivityContext.class})
 @PerActivityScope
-class HomeModule {
+class SaveModule {
 
-    private HomeActivity homeActivity;
+    private SaveActivity saveActivity;
 
-    HomeModule(HomeActivity homeActivity) {
-        this.homeActivity = homeActivity;
+    SaveModule(SaveActivity saveActivity) {
+        this.saveActivity = saveActivity;
     }
 
     @Provides
     @PerActivityScope
-    HomePresenter providesHomePresenter(Context context) {
-        return new HomePresenter(context);
+    SavePresenter providesHomePresenter(Context context) {
+        return new SavePresenter(context);
     }
 
     @Provides
     @PerActivityScope
     SectionsStatePagerAdapter providesSectionsStatePagerAdapter() {
-        return new SectionsStatePagerAdapter(homeActivity.getSupportFragmentManager());
+        return new SectionsStatePagerAdapter(saveActivity.getSupportFragmentManager());
     }
 
     @Provides

@@ -11,12 +11,14 @@ public interface MedicalFragmentContract {
     interface Presenter extends BaseMvpPresenter<View> {
 
         void setupRemarks();
+        void saveListener();
     }
 
     // Action callbacks. Activity/Fragment will implement
     interface View {
 
         void enableScrollingInRemarks();
+        void saveListener();
     }
 
 }

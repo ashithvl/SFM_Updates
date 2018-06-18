@@ -6,6 +6,7 @@
     <string name="gate">GATE</string>
     <string name="date">Date</string>
     <string name="total_vehicle_dispatched">Total vehicle Dispatched ?</string>
+    <string name="total_vehicle_dispatched_br">Total vehicle\nDispatched ?</string>
     <string name="any_theft">Any Theft ?</string>
     <string name="comments">Comments</string>
     <string name="remarks">Remarks</string>
@@ -17,12 +18,20 @@
     <string name="snake_calls">Snake Calls ?</string>
     <string name="total_patients">Total Patients ?</string>
     <string name="occupational_injury">Occupational Injury</string>
+    <string name="occupational_injury_br">Occupational\nInjury</string>
     <string name="routine">Routine</string>
     <string name="material_gate">Material Gate</string>
     <string name="total_vehicle_inward">Total vehicle inward ?</string>
+    <string name="total_vehicle_inward_br">Total vehicle\ninward ?</string>
     <string name="layover">Layover ?</string>
     <string name="any_updates">Any Updates ?</string>
-    <string name="number_of_patients">Number of Patients ?</string>
-    <string name="project">Project</string>
+    <string name="number_of_patients">Total Number of Patients ?</string>
+    <string name="number_of_patients_br">Total Number of\nPatients ?</string>
+    <string name="project">Projects</string>
     <string name="total_fire_calls">Total Fire Calls ?</string>
+    <string name="choose_image">Choose Image</string>
+
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

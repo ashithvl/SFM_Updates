@@ -11,12 +11,14 @@ public interface FireFragmentContract {
     interface Presenter extends BaseMvpPresenter<FireFragmentContract.View> {
 
         void setupRemarks();
+        void saveListener();
     }
 
     // Action callbacks. Activity/Fragment will implement
     interface View {
 
         void enableScrollingInRemarks();
+        void saveListener();
     }
 
 }

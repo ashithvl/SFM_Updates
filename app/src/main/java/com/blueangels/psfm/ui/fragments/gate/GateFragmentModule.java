@@ -23,9 +23,4 @@ public class GateFragmentModule {
     GateFragmentPresenter providesGateFragmentPresenter(Context context) {
         return new GateFragmentPresenter(context);
     }
-    @Provides
-    @PerFragmentScope
-    ArrayAdapter<String> providesStringArrayAdapter(Context context) {
-        return new ArrayAdapter<>(context, android.R.layout.simple_dropdown_item_1line, CONSTANTS);
-    }
 }

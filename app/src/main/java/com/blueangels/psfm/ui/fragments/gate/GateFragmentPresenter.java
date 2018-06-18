@@ -18,18 +18,7 @@ public class GateFragmentPresenter extends BasePresenter<GateFragmentContract.Vi
     }
 
     @Override
-    public void setupComment() {
-        getView().enableScrollingInComments();
-    }
-
-
-    @Override
-    public void setupSpinnerAdapter() {
-        getView().populateSpinner();
-    }
-
-    @Override
-    public void setupUpdateListener() {
-        getView().updateListener();
+    public void saveListener() {
+        getView().saveListener();
     }
 }

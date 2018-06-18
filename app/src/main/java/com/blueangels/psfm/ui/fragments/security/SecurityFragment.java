@@ -3,6 +3,9 @@ package com.blueangels.psfm.ui.fragments.security;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -15,11 +18,16 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 
 import com.blueangels.psfm.R;
 import com.blueangels.psfm.base.BaseView;
 import com.blueangels.psfm.base.FragmentContext;
+import com.blueangels.psfm.ui.fragments.medical.MedicalFragment;
+import com.blueangels.psfm.utils.PreferencesAppHelper;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
+
+import java.io.File;
 
 import javax.inject.Inject;
 
@@ -27,7 +35,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import pl.aprilapps.easyphotopicker.DefaultCallback;
+import pl.aprilapps.easyphotopicker.EasyImage;
 
+import static com.blueangels.psfm.ui.fragments.fire.FireFragment.CHOOSER_TYPE;
 import static com.blueangels.psfm.utils.Constants.CONSTANTS;
 
 /**
@@ -54,6 +65,8 @@ public class SecurityFragment extends Fragment implements SecurityFragmentContra
     AppCompatButton reset;
     private Context context;
     private Unbinder unbinder;
+    @BindView(R.id.image)
+    ImageView image;
 
     public SecurityFragment() {
         // Required empty public constructor
@@ -85,6 +98,16 @@ public class SecurityFragment extends Fragment implements SecurityFragmentContra
         securityFragmentPresenter.setupRemarks();
         //setup theft listener
         securityFragmentPresenter.setupTheftListener();
+        //save values to prefs
+        securityFragmentPresenter.saveListener();
+
+        if (PreferencesAppHelper.getSecurityImage() != null) {
+            File imgFile = new File(PreferencesAppHelper.getSecurityImage());
+            if (imgFile.exists()) {
+                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                image.setImageBitmap(myBitmap);
+            }
+        }
 
         return view;
     }
@@ -109,8 +132,64 @@ public class SecurityFragment extends Fragment implements SecurityFragmentContra
                     commentsLayout.setVisibility(View.VISIBLE);
                 else
                     commentsLayout.setVisibility(View.GONE);
+                PreferencesAppHelper.setSecurityTheft(s.toString());
             }
         });
+    }
+
+    @Override
+    public void saveListener() {
+        totalVehicleDispatched.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                PreferencesAppHelper.setSecurityVehicleDispatched(s.toString());
+            }
+        });
+
+        comments.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                PreferencesAppHelper.setSecurityTheftComments(s.toString());
+            }
+        });
+
+        remarks.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                PreferencesAppHelper.setSecuritySecurityRemarks(s.toString());
+            }
+        });
+
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -149,14 +228,38 @@ public class SecurityFragment extends Fragment implements SecurityFragmentContra
         anyTheft.setAdapter(stringArrayAdapter);
     }
 
-    @OnClick(R.id.reset)
-    public void onViewClicked() {
-        totalVehicleDispatched.setText("");
-        anyTheft.setText("");
-        comments.setText("");
-        remarks.setText("");
+    @OnClick({R.id.choose_image, R.id.reset})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.choose_image:
+                EasyImage.openChooserWithGallery(SecurityFragment.this, "Pick an Image", CHOOSER_TYPE);
+                break;
+            case R.id.reset:
+                totalVehicleDispatched.setText("");
+                anyTheft.setText("");
+                comments.setText("");
+                remarks.setText("");
+                PreferencesAppHelper.setSecurityImage(null);
+                image.setImageBitmap(null);
+                break;
+        }
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        EasyImage.handleActivityResult(requestCode, resultCode, data, getActivity(), new DefaultCallback() {
+            @Override
+            public void onImagePicked(File imageFile, EasyImage.ImageSource source, int type) {
+                File imgFile = new  File(String.valueOf(imageFile.getAbsoluteFile()));
+                PreferencesAppHelper.setSecurityImage(String.valueOf(imageFile.getAbsoluteFile()));
+                if(imgFile.exists()){
+                    Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                    image.setImageBitmap(myBitmap);
+                }
+            }
+        });
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();

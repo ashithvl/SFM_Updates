@@ -1,4 +1,4 @@
-package com.blueangels.psfm.ui.fragments.security;
+package com.blueangels.psfm.ui.fragments.project;
 
 import com.blueangels.psfm.base.BaseMvpPresenter;
 
@@ -6,18 +6,15 @@ import com.blueangels.psfm.base.BaseMvpPresenter;
  * Created by Leon on 25-12-17.
  */
 
-public interface SecurityFragmentContract {
+public interface ProjectFragmentContract {
 
-    interface Presenter extends BaseMvpPresenter<View> {
+    interface Presenter extends BaseMvpPresenter<ProjectFragmentContract.View> {
 
         void setupComment();
 
-        void setupRemarks();
-
         void setupSpinnerAdapter();
 
-        void setupTheftListener();
-
+        void setupUpdateListener();
         void saveListener();
 
     }
@@ -27,12 +24,9 @@ public interface SecurityFragmentContract {
 
         void enableScrollingInComments();
 
-        void enableScrollingInRemarks();
-
         void populateSpinner();
 
-        void theftListener();
-
+        void updateListener();
         void saveListener();
     }
 

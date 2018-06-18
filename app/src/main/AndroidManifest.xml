@@ -2,15 +2,38 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.blueangels.psfm">
 
+    <uses-sdk
+        android:minSdkVersion="22"
+        android:targetSdkVersion="27" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name=".PsfmApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/sfm_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/sfm_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.home.HomeActivity">
+        <provider
+            android:name=".MyFileProvider"
+            android:authorities="com.blueangels.psfm"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/files" />
+        </provider>
+
+        <activity android:name=".ui.activities.home.HomeActivity"/>
+        <activity android:name=".ui.activities.save.SaveActivity" />
+        <activity
+            android:name=".ui.activities.SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_splash"
+            android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

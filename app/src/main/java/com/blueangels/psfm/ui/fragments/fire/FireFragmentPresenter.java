@@ -21,4 +21,9 @@ public class FireFragmentPresenter extends BasePresenter<FireFragmentContract.Vi
     public void setupRemarks() {
         getView().enableScrollingInRemarks();
     }
+
+    @Override
+    public void saveListener() {
+        getView().saveListener();
+    }
 }

@@ -99,6 +99,29 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="center"
+            android:scaleType="centerInside" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/choose_image"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:background="@android:color/holo_green_light"
+            android:elevation="4dp"
+            android:shadowRadius="@android:integer/config_mediumAnimTime"
+            android:text="@string/choose_image"
+            android:textColor="@android:color/white" />
+
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/reset"
             style="@style/Widget.AppCompat.Button.Colored"

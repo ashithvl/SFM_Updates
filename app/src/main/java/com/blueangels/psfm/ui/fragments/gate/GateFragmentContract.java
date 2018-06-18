@@ -10,22 +10,13 @@ public interface GateFragmentContract {
 
     interface Presenter extends BaseMvpPresenter<GateFragmentContract.View> {
 
-        void setupComment();
-
-        void setupSpinnerAdapter();
-
-        void setupUpdateListener();
-
+        void saveListener();
     }
 
     // Action callbacks. Activity/Fragment will implement
     interface View {
 
-        void enableScrollingInComments();
-
-        void populateSpinner();
-
-        void updateListener();
+        void saveListener();
     }
 
 }

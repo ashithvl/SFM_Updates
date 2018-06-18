@@ -1,4 +1,4 @@
-package com.blueangels.psfm.ui.fragments.security;
+package com.blueangels.psfm.ui.fragments.project;
 
 import android.content.Context;
 
@@ -8,12 +8,12 @@ import com.blueangels.psfm.base.BasePresenter;
  * Created by Leon on 25-12-17.
  */
 
-public class SecurityFragmentPresenter extends BasePresenter<SecurityFragmentContract.View>
-        implements SecurityFragmentContract.Presenter {
+public class ProjectFragmentPresenter extends BasePresenter<ProjectFragmentContract.View>
+        implements ProjectFragmentContract.Presenter {
 
     private Context context;
 
-    SecurityFragmentPresenter(Context context) {
+    ProjectFragmentPresenter(Context context) {
         this.context = context;
     }
 
@@ -22,10 +22,6 @@ public class SecurityFragmentPresenter extends BasePresenter<SecurityFragmentCon
         getView().enableScrollingInComments();
     }
 
-    @Override
-    public void setupRemarks() {
-        getView().enableScrollingInRemarks();
-    }
 
     @Override
     public void setupSpinnerAdapter() {
@@ -33,8 +29,8 @@ public class SecurityFragmentPresenter extends BasePresenter<SecurityFragmentCon
     }
 
     @Override
-    public void setupTheftListener() {
-        getView().theftListener();
+    public void setupUpdateListener() {
+        getView().updateListener();
     }
 
     @Override

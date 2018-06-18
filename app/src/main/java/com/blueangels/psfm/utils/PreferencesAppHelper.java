@@ -20,9 +20,17 @@ public class PreferencesAppHelper {
     private static final String FIRE_SNAKE_CALLS = "fire_snake_calls";
     private static final String FIRE_REMARKS = "fire_remarks";
     private static final String MEDICAL_OCCUPATIONAL_INJURY = "medical_occupation_injury";
+    private static final String MEDICAL_NO_OF_PATIENTS = "medical_no_of_patients";
+    private static final String MEDICAL_REMARKS = "medical_remarks";
     private static final String MEDICAL_ROUTINE = "medical_routine";
     private static final String GATE_VEHICLE_INWARD = "gate_vehicle_inward";
     private static final String GATE_LAYOVER = "gate_layover";
+    private static final String GATE_REMARKS = "gate_remarks";
+    private static final String PROJECT_UPDATES = "project_updates";
+    private static final String PROJECT_COMMENTS = "project_comments";
+    private static final String FIRE_IMAGE = "fire_image";
+    private static final String SECURITY_IMAGE = "security_image";
+    private static final String MEDICAL_IMAGE = "medical_image";
     private static SharedPreferences mSharedPreferences = null;
 
     public static String getDate() {
@@ -33,12 +41,36 @@ public class PreferencesAppHelper {
         setStringInPrefs(DATE, date);
     }
 
-    public static int getSecurityVehicleDispatched() {
-        return getSharedPreference().getInt(SECURITY_VEHICLE_DISPATCHED, 0);
+    public static String getFireImage() {
+        return getSharedPreference().getString(FIRE_IMAGE, null);
     }
 
-    public static void setSecurityVehicleDispatched(int securityVehicleDispatched) {
-        setIntInPrefs(SECURITY_VEHICLE_DISPATCHED, securityVehicleDispatched);
+    public static void setFireImage(String path) {
+        setStringInPrefs(FIRE_IMAGE, path);
+    }
+
+    public static String getSecurityImage() {
+        return getSharedPreference().getString(SECURITY_IMAGE, null);
+    }
+
+    public static void setSecurityImage(String path) {
+        setStringInPrefs(SECURITY_IMAGE, path);
+    }
+
+    public static String getMedicalImage() {
+        return getSharedPreference().getString(MEDICAL_IMAGE, null);
+    }
+
+    public static void setMedicalImage(String path) {
+        setStringInPrefs(MEDICAL_IMAGE, path);
+    }
+
+    public static String getSecurityVehicleDispatched() {
+        return getSharedPreference().getString(SECURITY_VEHICLE_DISPATCHED, null);
+    }
+
+    public static void setSecurityVehicleDispatched(String securityVehicleDispatched) {
+        setStringInPrefs(SECURITY_VEHICLE_DISPATCHED, securityVehicleDispatched);
     }
 
     public static String getSecurityTheft() {
@@ -46,7 +78,23 @@ public class PreferencesAppHelper {
     }
 
     public static void setSecurityTheft(String securityTheft) {
-        setStringInPrefs(SECURITY_THEFT,securityTheft);
+        setStringInPrefs(SECURITY_THEFT, securityTheft);
+    }
+
+    public static String getProjectUpdates() {
+        return getSharedPreference().getString(PROJECT_UPDATES, null);
+    }
+
+    public static void setProjectUpdates(String projectUpdates) {
+        setStringInPrefs(PROJECT_UPDATES, projectUpdates);
+    }
+
+    public static String getProjectComments() {
+        return getSharedPreference().getString(PROJECT_COMMENTS, null);
+    }
+
+    public static void setProjectComments(String projectComments) {
+        setStringInPrefs(PROJECT_COMMENTS, projectComments);
     }
 
     public static String getSecurityTheftComments() {
@@ -54,7 +102,7 @@ public class PreferencesAppHelper {
     }
 
     public static void setSecurityTheftComments(String securityTheftComments) {
-        setStringInPrefs(SECURITY_THEFT_COMMENTS,securityTheftComments);
+        setStringInPrefs(SECURITY_THEFT_COMMENTS, securityTheftComments);
     }
 
     public static String getSecuritySecurityRemarks() {
@@ -62,7 +110,7 @@ public class PreferencesAppHelper {
     }
 
     public static void setSecuritySecurityRemarks(String securitySecurityRemarks) {
-        setStringInPrefs(SECURITY_SECURITY_REMARKS,securitySecurityRemarks);
+        setStringInPrefs(SECURITY_SECURITY_REMARKS, securitySecurityRemarks);
     }
 
     public static String getFireCalls() {
@@ -73,28 +121,28 @@ public class PreferencesAppHelper {
         setStringInPrefs(FIRE_CALLS, fireCalls);
     }
 
-    public static int getFireIncidentalCount() {
-        return getSharedPreference().getInt(FIRE_INCIDENTAL_COUNT, 0);
+    public static String getFireIncidentalCount() {
+        return getSharedPreference().getString(FIRE_INCIDENTAL_COUNT, null);
     }
 
-    public static void setFireIncidentalCount(int fireIncidentalCount) {
-        setIntInPrefs(FIRE_INCIDENTAL_COUNT, fireIncidentalCount);
+    public static void setFireIncidentalCount(String fireIncidentalCount) {
+        setStringInPrefs(FIRE_INCIDENTAL_COUNT, fireIncidentalCount);
     }
 
-    public static int getFireNonIncidentalCount() {
-        return getSharedPreference().getInt(FIRE_NON_INCIDENTAL_COUNT, 0);
+    public static String getFireNonIncidentalCount() {
+        return getSharedPreference().getString(FIRE_NON_INCIDENTAL_COUNT, null);
     }
 
-    public static void setFireNonIncidentalCount(int fireNonIncidentalCount) {
-        setIntInPrefs(FIRE_NON_INCIDENTAL_COUNT, fireNonIncidentalCount);
+    public static void setFireNonIncidentalCount(String fireNonIncidentalCount) {
+        setStringInPrefs(FIRE_NON_INCIDENTAL_COUNT, fireNonIncidentalCount);
     }
 
-    public static int getFireSnakeCalls() {
-        return getSharedPreference().getInt(FIRE_SNAKE_CALLS, 0);
+    public static String getFireSnakeCalls() {
+        return getSharedPreference().getString(FIRE_SNAKE_CALLS, null);
     }
 
-    public static void setFireSnakeCalls(int fireSnakeCalls) {
-        setIntInPrefs(FIRE_SNAKE_CALLS, fireSnakeCalls);
+    public static void setFireSnakeCalls(String fireSnakeCalls) {
+        setStringInPrefs(FIRE_SNAKE_CALLS, fireSnakeCalls);
     }
 
     public static String getFireRemarks() {
@@ -105,36 +153,60 @@ public class PreferencesAppHelper {
         setStringInPrefs(FIRE_REMARKS, fireRemarks);
     }
 
-    public static int getMedicalOccupationalInjury() {
-        return getSharedPreference().getInt(MEDICAL_OCCUPATIONAL_INJURY, 0);
+    public static String getMedicalRemarks() {
+        return getSharedPreference().getString(MEDICAL_REMARKS, null);
+    }
+
+    public static void setMedicalRemarks(String medicalRemarks) {
+        setStringInPrefs(MEDICAL_REMARKS, medicalRemarks);
+    }
+
+    public static String getMedicalOccupationalInjury() {
+        return getSharedPreference().getString(MEDICAL_OCCUPATIONAL_INJURY, null);
     }
 
     public static void setMedicalOccupationalInjury(String medicalOccupationalInjury) {
         setStringInPrefs(MEDICAL_OCCUPATIONAL_INJURY, medicalOccupationalInjury);
     }
 
-    public static int getMedicalRoutine() {
-        return getSharedPreference().getInt(MEDICAL_ROUTINE, 0);
+    public static String getMedicalNoOfPatients() {
+        return getSharedPreference().getString(MEDICAL_NO_OF_PATIENTS, null);
+    }
+
+    public static void setMedicalNoOfPatients(String medicalOccupationalInjury) {
+        setStringInPrefs(MEDICAL_NO_OF_PATIENTS, medicalOccupationalInjury);
+    }
+
+    public static String getMedicalRoutine() {
+        return getSharedPreference().getString(MEDICAL_ROUTINE, null);
     }
 
     public static void setMedicalRoutine(String medicalRoutine) {
         setStringInPrefs(MEDICAL_ROUTINE, medicalRoutine);
     }
 
-    public static int getGateVehicleInward() {
-        return getSharedPreference().getInt(GATE_VEHICLE_INWARD, 0);
+    public static String getGateVehicleInward() {
+        return getSharedPreference().getString(GATE_VEHICLE_INWARD, null);
     }
 
     public static void setGateVehicleInward(String gateVehicleInward) {
         setStringInPrefs(GATE_VEHICLE_INWARD, gateVehicleInward);
     }
 
-    public static int getGateLayover() {
-        return getSharedPreference().getInt(GATE_LAYOVER, 0);
+    public static String getGateLayover() {
+        return getSharedPreference().getString(GATE_LAYOVER, null);
     }
 
     public static void setGateLayover(String gate_layover) {
         setStringInPrefs(GATE_LAYOVER, gate_layover);
+    }
+
+    public static String getGateRemarks() {
+        return getSharedPreference().getString(GATE_REMARKS, null);
+    }
+
+    public static void setGateRemarks(String fireRemarks) {
+        setStringInPrefs(GATE_REMARKS, fireRemarks);
     }
 
     private static void setStringInPrefs(String key, String value) {
@@ -154,5 +226,11 @@ public class PreferencesAppHelper {
             mSharedPreferences = PsfmApplication.getAppContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         }
         return mSharedPreferences;
+    }
+
+    public static void clearSharedPreference() {
+        SharedPreferences.Editor editor = getSharedPreference().edit();
+        editor.clear();
+        editor.apply();
     }
 }

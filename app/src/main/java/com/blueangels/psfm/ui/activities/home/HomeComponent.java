@@ -6,7 +6,7 @@ import dagger.Component;
 
 @Component(modules = {HomeModule.class})
 @PerActivityScope
-public interface PaymentComponent {
+public interface HomeComponent {
 
     void inject(HomeActivity paymentActivity);
 

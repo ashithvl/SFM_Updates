@@ -21,4 +21,9 @@ public class MedicalFragmentPresenter extends BasePresenter<MedicalFragmentContr
     public void setupRemarks() {
         getView().enableScrollingInRemarks();
     }
+
+    @Override
+    public void saveListener() {
+        getView().saveListener();
+    }
 }
